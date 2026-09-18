@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#071b1d"/>
+  <rect x="76" y="76" width="360" height="360" rx="82" fill="#0d2d30" stroke="#96d99b" stroke-width="10"/>
+  <path d="M150 154h212v204H150z" fill="#d7b36d" opacity=".9"/>
+  <path d="M170 174h172v164H170z" fill="#0d2d30"/>
+  <text x="256" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="132" font-weight="700" fill="#96d99b">ق</text>
+</svg>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071b1d" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="القرآن الكريم" />
+    <title>القرآن الكريم</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="quran-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="quran-icon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">ق</div>
+          <div>
+            <h2>القرآن الكريم</h2>
+            <small>ختمة وقراءة</small>
+          </div>
+        </div>
+
+        <nav class="nav-menu">
+          <button class="nav-btn active" data-view="home">🏠 الرئيسية</button>
+          <button class="nav-btn" data-view="quran">📚 القرآن</button>
+          <button class="nav-btn" data-view="recitation">🔊 التلاوة</button>
+          <button class="nav-btn" data-view="bookmarks">🔖 العلامات</button>
+          <button class="nav-btn" data-view="favorites">❤️ المفضلة</button>
+          <button class="nav-btn" data-view="search">🔍 البحث</button>
+          <button class="nav-btn" data-view="adhkar">🤲 الأذكار</button>
+          <button class="nav-btn" data-view="prayer">⏰ مواقيت الصلاة</button>
+          <button class="nav-btn" data-view="settings">⚙️ الإعدادات</button>
+        </nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">مرحبا بكم</p>
+            <h1 id="pageTitle">الرئيسية</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <button id="nightModeBtn" class="icon-btn" type="button">🌙</button>
+            <div class="user-pill">قارىء</div>
+          </div>
+        </header>
+
+        <section id="homeView" class="view active">
+          <div class="hero-card">
+            <div>
+              <span class="badge">آخر قراءة</span>
+              <h2 id="lastReadTitle">الفاتحة</h2>
+              <p id="lastReadMeta">الآية 1 • قراءة اليوم</p>
+            </div>
+            <button id="continueReadBtn" class="primary-btn" type="button">متابعة القراءة</button>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card accent">
+              <span>سورة اليوم</span>
+              <strong id="homeSurahName">الفاتحة</strong>
+              <small id="homeSurahVerses">3 آيات</small>
+            </div>
+            <div class="stat-card">
+              <span>العلامات</span>
+              <strong id="bookmarkCount">0</strong>
+              <small>محفوظة</small>
+            </div>
+            <div class="stat-card">
+              <span>المفضلة</span>
+              <strong id="favoriteCount">0</strong>
+              <small>آيات</small>
+            </div>
+            <div class="stat-card">
+              <span>التقدم</span>
+              <strong id="readingProgress">0%</strong>
+              <small>الختمة</small>
+            </div>
+          </div>
+
+          <div class="two-panel-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <h3>قائمة السور</h3>
+                <button id="openQuranBtn" class="secondary-btn" type="button">عرض السور</button>
+              </div>
+              <div id="homeSurahList" class="mini-list"></div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <h3>السبحة الإلكترونية</h3>
+              </div>
+              <div class="tasbih-box">
+                <div id="tasbihCounter" class="tasbih-counter">0</div>
+                <div class="tasbih-actions">
+                  <button id="tasbihPlusBtn" class="primary-btn" type="button">+ 1</button>
+                  <button id="tasbihResetBtn" class="secondary-btn" type="button">إعادة</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="quranView" class="view">
+          <div class="reader-layout">
+            <div class="panel surah-panel">
+              <div class="panel-header">
+                <h3>السور</h3>
+                <div class="toolbar-search">
+                  <input id="surahSearch" type="search" placeholder="بحث عن سورة..." />
+                </div>
+              </div>
+              <div id="surahList" class="surah-list"></div>
+            </div>
+
+            <div class="panel reader-panel">
+              <div class="panel-header reader-header">
+                <div>
+                  <span class="badge">السورة الحالية</span>
+                  <h3 id="surahTitle">الفاتحة</h3>
+                </div>
+                <div class="reader-actions">
+                  <button id="bookmarkBtn" class="secondary-btn" type="button">🔖 علامة</button>
+                  <button id="favoriteBtn" class="secondary-btn" type="button">❤️ مفضلة</button>
+                </div>
+              </div>
+
+              <div class="verse-nav">
+                <button id="prevVerseBtn" class="icon-btn" type="button">‹</button>
+                <span id="versePosition">الآية 1</span>
+                <button id="nextVerseBtn" class="icon-btn" type="button">›</button>
+              </div>
+
+              <div id="surahReader" class="surah-reader"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="recitationView" class="view">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>تلاوة صوتية</h3>
+            </div>
+            <div class="recitation-box">
+              <div class="audio-meta">
+                <strong id="recitationSurah">الفاتحة</strong>
+                <span id="recitationVerse">السورة كاملة</span>
+              </div>
+              <div class="reciter-name">القارئ: الشيخ محمد صديق المنشاوي</div>
+              <div class="player-controls">
+                <button id="playRecitationBtn" class="primary-btn" type="button">تشغيل السورة كاملة</button>
+                <button id="pauseRecitationBtn" class="secondary-btn" type="button">إيقاف</button>
+              </div>
+              <audio id="quranAudio" class="quran-audio" controls preload="auto">
+                متصفحك لا يدعم تشغيل الصوت.
+              </audio>
+              <small id="audioStatus" class="audio-status" role="status">تلاوة السورة كاملة — اضغط تشغيل</small>
+              <p id="recitationText" class="recitation-text">بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="bookmarksView" class="view">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>العلامات المرجعية</h3>
+            </div>
+            <div id="bookmarksList" class="stack-list"></div>
+          </div>
+        </section>
+
+        <section id="favoritesView" class="view">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>المفضلة</h3>
+            </div>
+            <div id="favoritesList" class="stack-list"></div>
+          </div>
+        </section>
+
+        <section id="searchView" class="view">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>بحث داخل القرآن</h3>
+            </div>
+            <div class="search-row">
+              <input id="globalQuranSearch" type="search" placeholder="اكتب كلمة أو آية..." />
+            </div>
+            <div id="searchResults" class="stack-list"></div>
+          </div>
+        </section>
+
+        <section id="adhkarView" class="view">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>الأذكار</h3>
+            </div>
+            <div id="adhkarList" class="stack-list"></div>
+          </div>
+        </section>
+
+        <section id="prayerView" class="view">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>مواقيت الصلاة</h3>
+            </div>
+            <div id="prayerTimes" class="prayer-grid"></div>
+          </div>
+        </section>
+
+        <section id="settingsView" class="view">
+          <div class="panel settings-panel">
+            <div class="panel-header">
+              <h3>الإعدادات</h3>
+            </div>
+
+            <div class="settings-grid">
+              <label class="field">
+                <span>اللغة</span>
+                <select id="languageSelect">
+                  <option value="ar">العربية</option>
+                  <option value="en">English</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>حجم الخط</span>
+                <input id="fontSizeInput" type="range" min="16" max="30" step="1" value="22" />
+              </label>
+
+              <label class="field checkbox-field">
+                <input id="soundToggle" type="checkbox" checked />
+                <span>تشغيل الصوت</span>
+              </label>
+
+              <label class="field checkbox-field">
+                <input id="nightModeToggle" type="checkbox" />
+                <span>الوضع الليلي</span>
+              </label>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch((error) => {
+          console.error('Unable to register the app service worker:', error);
+        });
+      }
+    </script>
+  </body>
+</html>
