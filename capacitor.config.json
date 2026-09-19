@@ -1,0 +1,6 @@
+{
+  "appId": "com.quran.alkarim",
+  "appName": "Quran Al Karim",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

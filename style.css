@@ -182,6 +182,27 @@ button {
   padding: 22px 26px;
   background: linear-gradient(135deg, rgba(150, 217, 155, 0.18), rgba(17, 51, 55, 0.88));
 }
+.hero-showcase {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(200, 170, 90, 0.18), transparent 30%),
+    linear-gradient(135deg, rgba(7, 27, 29, 0.86), rgba(15, 60, 52, 0.9));
+  border: 1px solid rgba(212, 179, 109, 0.28);
+}
+.hero-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 48%, rgba(0,0,0,0.15));
+  pointer-events: none;
+}
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 360px;
+}
 .badge {
   display: inline-flex;
   align-items: center;
@@ -197,6 +218,191 @@ button {
 }
 .hero-card p {
   margin: 0;
+  color: var(--muted);
+}
+.hero-copy .primary-btn {
+  margin-top: 22px;
+}
+.hero-floating-phones {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  pointer-events: none;
+}
+.phone-mockup {
+  width: 220px;
+  height: 430px;
+  background: #16171d;
+  border: 3px solid rgba(222, 180, 98, 0.8);
+  border-radius: 30px;
+  padding: 12px 10px;
+  box-shadow: 0 22px 44px rgba(0,0,0,0.45);
+  position: relative;
+}
+.phone-mockup::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 82px;
+  height: 8px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+.phone-one {
+  transform: translateX(44px) rotate(-8deg);
+}
+.phone-two {
+  transform: translateY(8px);
+  z-index: 2;
+  background: linear-gradient(180deg, #0b2a2d, #0d1f22);
+}
+.phone-three {
+  transform: translateX(-44px) rotate(8deg);
+}
+.phone-screen {
+  height: 100%;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(17, 57, 48, 0.92), rgba(9, 31, 29, 0.96));
+  padding: 18px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #f4ebd5;
+}
+.dark-screen {
+  background: linear-gradient(180deg, rgba(10, 30, 31, 0.95), rgba(7, 24, 25, 0.96));
+}
+.feature-screen {
+  background: linear-gradient(180deg, rgba(11, 36, 35, 0.95), rgba(7, 19, 22, 0.96));
+}
+.phone-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.8);
+  padding: 2px 6px 6px;
+}
+.phone-title {
+  text-align: center;
+  font-size: 1.32rem;
+  font-weight: 800;
+  color: #f4d88a;
+  margin-top: 4px;
+}
+.phone-verse {
+  display: grid;
+  gap: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(244, 216, 138, 0.2);
+  border-radius: 14px;
+  padding: 10px 8px;
+  text-align: center;
+}
+.phone-verse strong {
+  font-size: 1rem;
+}
+.phone-verse small {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.6;
+}
+.phone-toolbar {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  font-size: 0.55rem;
+  text-align: center;
+}
+.phone-toolbar span {
+  padding: 8px 4px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+}
+.phone-card-box {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+.mini-ayah {
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-size: 0.7rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.mini-ayah.active {
+  border-color: rgba(244, 216, 138, 0.38);
+  background: rgba(244, 216, 138, 0.12);
+}
+.phone-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(150, 217, 155, 0.88), rgba(212, 179, 109, 0.7));
+}
+.feature-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+.feature-line {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.04);
+  text-align: center;
+}
+.feature-line.active {
+  background: rgba(150, 217, 155, 0.14);
+  border-color: rgba(150, 217, 155, 0.35);
+  color: #eaf9ef;
+}
+.conversion-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+.step-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(244, 216, 138, 0.18);
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+  display: grid;
+  gap: 6px;
+}
+.step-card span {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: rgba(150, 217, 155, 0.14);
+  color: var(--primary);
+  font-weight: 800;
+}
+.step-card strong {
+  font-size: 1.05rem;
+}
+.step-card small {
   color: var(--muted);
 }
 .stats-grid {
@@ -502,6 +708,20 @@ button {
   .stats-grid {
     grid-template-columns: repeat(2, minmax(160px, 1fr));
   }
+  .hero-showcase {
+    min-height: 500px;
+  }
+  .hero-floating-phones {
+    justify-content: center;
+    gap: 10px;
+  }
+  .phone-mockup {
+    width: 170px;
+    height: 330px;
+  }
+  .conversion-steps {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
 }
 @media (max-width: 580px) {
   .app-shell {
@@ -511,6 +731,37 @@ button {
   .sidebar {
     padding: 12px;
     border-radius: 18px;
+  }
+  .hero-showcase {
+    min-height: 420px;
+    padding: 16px 14px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .hero-copy {
+    max-width: 100%;
+    position: relative;
+    z-index: 3;
+  }
+  .hero-floating-phones {
+    position: relative;
+    margin-top: 16px;
+    inset: auto;
+    gap: 6px;
+    overflow: hidden;
+  }
+  .phone-mockup {
+    width: 120px;
+    height: 220px;
+    border-radius: 18px;
+    padding: 8px 6px;
+  }
+  .phone-one { transform: translateX(8px) rotate(-5deg); }
+  .phone-two { transform: translateY(0); }
+  .phone-three { transform: translateX(-8px) rotate(5deg); }
+  .conversion-steps {
+    grid-template-columns: 1fr;
   }
   .brand {
     padding: 6px 4px 12px;

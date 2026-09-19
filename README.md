@@ -67,3 +67,23 @@ http://localhost:5000/api/health
 - إعدادات كاملة للمؤسسة
 - تصميم متجاوب للجوال والكمبيوتر
 
+## نسخة Android
+
+تم تجهيز نسخة Android عبر Capacitor داخل مجلد [android](android).
+
+### مزامنة وبناء المشروع
+
+```powershell
+cd "d:\11\BizFlow-AI"
+npm run build
+npm run sync
+```
+
+يتطلب بناء Android وجود Android Studio وJava 21 أو أحدث متوافق مع إصدار Gradle المستخدم.
+
+### ملفات الإصدار
+
+- نسخة APK الموقعة للتثبيت المباشر: [android/app/build/outputs/apk/release/app-release.apk](android/app/build/outputs/apk/release/app-release.apk)
+- نسخة AAB الموقعة للنشر على Google Play: [android/app/build/outputs/bundle/release/app-release.aab](android/app/build/outputs/bundle/release/app-release.aab)
+
+مفتاح التوقيع محفوظ محليًا داخل `android/app`، وملف بياناته مستثنى من التتبع. يجب الاحتفاظ بنسخة احتياطية آمنة من المفتاح وكلمة مروره؛ فقدان أي منهما يمنع تحديث التطبيق المنشور بنفس هوية التوقيع.

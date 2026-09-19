@@ -1,0 +1,20 @@
+{
+  "name": "bizflow-ai",
+  "version": "1.0.0",
+  "description": "نظام إدارة أعمال احترافي يحوي:",
+  "main": "script.js",
+  "scripts": {
+    "build": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$ErrorActionPreference='Stop'; New-Item -ItemType Directory -Force -Path www | Out-Null; Copy-Item -Force index.html,style.css,script.js,manifest.webmanifest,service-worker.js,quran-icon.svg www\\;\"",
+    "sync": "npx cap sync android",
+    "android": "npx cap open android"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2"
+  }
+}
